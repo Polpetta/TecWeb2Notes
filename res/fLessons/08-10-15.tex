@@ -1,0 +1,92 @@
+\section{Lezione del 08-10-15}
+
+\subsection{Riassunto lezione precedente}
+Importantza del tempo nelle pagine web. Quello che vogliono gli utenti sono i 6 assi informativi del giornalismo (where who why what when how)
+
+Tempo in media: 31 secondi nella home, 53 secondi nelle pagine interne.
+
+Il tempo di scelta: oltre il tempo di pagina c'\`e un timer globale complessivo di due minuti in cui l'utente decide se rimere o andare via nel sito.
+
+L'utente si aspetta di aver trovato quello che cerca in circa 3 minuti e 49 secondi.
+
+\subsection{Timer e tempistiche di navigazione}
+
+Visto il limite di scelta di 1m e 49 secondi significa che l'utente dopo aver visto l'home page e navigato poco pi\`u di una pagina interna, fa la sua scelta, se continuare da noi o cambiare sito.
+
+Con il timer globale di 3 min e 49 secondi ci si aspetta di finire quello che deve fare (l'utente) e in media vengono visitate tre pagine e mezzo del sito.
+
+\subsubsection{L'importanza della struttura}
+
+La struttura di un sito diventa critica, non \`e cos\`i banale. \`E importante considerare la distanza dalla nostra home page.
+
+Quali assi (6 domande) dobbiamo tenere all'interno del sito? Cosa diamo all'interno delle nostre pagine? Potremmo concentrarci su altro, ma se ci concentriamo su altro sbagliamo: infatti la navigazione \`e cambiata, tempo fa la navigazione cominciava sempre dalla home page, ai giorni nostri questo non \`e pi\`u vero. La causa di tutto ci\`o sono i motori di ricerca che funzionano sempre meglio, e che permettono che la navigazione cominci da qualsiasi punto del sito! In gergo tecnico questa cosa si chiama \textbf{deep linking}. Quindi ogni pagina potrebbe essere la prima pagina, e la situazione si fa pi\`u complessa: ogni pagina pu\`o essere la pagina iniziale che un utente vede.
+
+Agli assi informativi succede che parte delle informazioni che abbiamo descritto nella home andrebbero riscritte per ogni pagina del nostro sito. Fortunatamente la situazione non \`e proprio cos\`i: alcune informazioni sono opzionali, mentre altri assi sono obbligatorie. Assi opzionali:
+\begin{itemize}
+
+\item L'asse when
+
+\item L'asse why mi permette di capire qual'\`e il focus del sito.
+
+\item L'asse how, che tipicamente non sapendo cosa l'utente altro vuole dal sito il designe deve offrire una search, cos\`i se l'utente volesse cercare qualcos altro. La posizione migliore \`e in alto a destra
+
+\item Se abbiamo spazio, \`e utile mettere anche dei link alle pagine correlate
+
+\item L'asse Where diventa ancora pi\`u importante perch\`e ora l'utente \`e catapultato in mezzo al nostro ``bosco'' informativo. Tipicamente, si dovrebbe rendere chiaro il contesto (la ``minimappa'' o mappa locale) dove si trova (il ``territorio circostante''). Si potrebbe obiettare che \`e gi\`a presente l'asse what, riprendere il link che porta alla home e navigare da li tramite gli altri link, ma questo implica fare passaggi in pi\`u all'utente, e questo fa perdere un click all'utente. Occorrerebbe dare questa informazione sul web direttamente alla pagina. Se arriva ad una certa pagina, avete gi\`a molta informazione su cosa cerca, inutile perderla rispedendolo alla home.
+
+\end{itemize}
+
+Assi invece obbligatori:
+
+\begin{itemize}
+
+\item Who (dove sono? \`E importante indicare il logo)
+
+\item What (tipicamente, link diretto alla home page. Dev'esserci un modo semplice per tornare alla home e capire che sito \`e)
+
+\end{itemize}
+
+In generale, l'asse Where in termine tecnico viene detto \textbf{breadcumb}\footnote{Piccoli pezzi di pane}. Ci sono 3 tipi primari di breadcrumbs:
+\begin{itemize}
+
+\item Location. Ci da il posto della pagina nella gerarchia del sito. \`E una cosa molto classica, e solitamente questa minimappa \`e anche navigabile.
+
+\item Attribute. Invece di diviere la pagina in un grande albero delle categorie mostrano gli attributi della pagina. Qui si mostrano gli attributi che possono non corrispondere a una categoria di attributi. Pu\`o essere che una pagina sia presente in pi\`u categorie, diversamente dalla Location in cui una pagina ha una sola categoria. Risulta molto pi\`u flessibile. Sembra essere la scelta migliore tra gli altri cammini. Questo per\`o \`e pi\`u costoso per chi fa il sito, ed inoltre la taglia del cammino pu\`o diventare molto grande.
+
+\item Path. Questo tipo di breadcumb \`e dinamico in quanto mostra il cammino effettuato dell'utente, richiedendo un carico un po' pi\`u alto nel server. Questo cammino \`e interessante ma non risolve il problema iniziale di essere dispersi in un sito
+
+\end{itemize}
+
+Tutti i breadcumb hanno solitamente dei separatori, che sono di solito il maggiore ( \textgreater ) e lo slash ( / ), e sono quelli che gli utenti si aspettano.
+
+\subsection{Problemi di usabilit\`a}
+
+Due tipi di categorie principali: persistenti e non persistenti.
+
+\subsubsection{Persistenti}
+
+Quando si naviga su un sito, occorre sempre stare attenti al problema del \textit{lost in navigation}. Gli utenti devono essere coscienti di dove sono nel sito, cio\`e l'asse Where. Quindi, tipicamente gli utenti devono essere coscienti di dove sono e dove potranno andare, ma oltre ai breadcumbs \`e necessario dare qualcosa in pi\`u. \`E importante anche che l'utente si ricordi dove ha navigato. In poche parole, occorre fare del nostro meglio per non affaticare l'utente; una semplicissima possibilit\`a \`e quella di colorare i link gi\`a visitati dall'utente\footnote{Un errore dei designer \`e quella di rimuovere il cambio di colore, causando problemi all'utente che naviga nel nostro sito, perch\`e deve compiere uno sforzo computazionale maggiore, anche se peggiora l'esteticit\`a}, infatti il 74\% dei siti web rispetta questa convenzione.
+
+Durante la navigazione su un sito, i movimenti di navigazione sono non solo inizialmente quello dei click, ma anche quelli della pressione del pulsante ``\textit{back}''. Questo secondo movimento non \`e da sottovalutare, perch\`e agli utente piace navigare all'indietro, anche molte volte\footnote{\`E possibile arrivare anche fino a 7 volte}, nonostante ci sia un link diretto. Tutto ci\`o porta a una perdita di tempo (che all'utente interessa), ma non \`e la sua pulsione primaria: lo scopo primario infatti \`e minimizzare la fatica ed evitare lo sforzo. Vantaggi del back button:
+\begin{itemize}
+
+\item Non serve ricordarsi il persorso seguito
+
+\item L'interfaccia \`e consistente per tutti i siti (sta fuori dal sito)
+
+\item Non devono cercare dei link
+
+\item \`E consistente con il metodo di cercare ``trial and error''
+
+\end{itemize}
+
+Un \underline{grave} errore quindi \`e quello di \textit{non permettere l'uso del back button}.
+
+Altri modi in cui la navigazione dell'utente pu\`o essere disturbata sono \textit{aprirgli nuove finestre del browser}. Molti designer aprono nuove finestre per separare nettamente nuovo contenuto (o per cercare di tenere l'utente nel proprio sito). Aprire una nuova finestra crea problemi all'utente, e questo crea problemi, perch\`e non \`e pi\`u disponibile l'uso del back button, inoltre, avere pi\`u finestre confonde l'utente medio. Le nuove finestre possono essere di due tipi:
+\begin{itemize}
+
+\item Finestra a schermo intero: Il problema della nuova finestra, che la rende peggiore del tab, \`e che si sovrappone alla navigazione esistente in maniera non-standard. Se la finestra va a tutto schermo, l'utente medio \`e irritato e confuso: non sa come tornare indietro.
+
+\item Finestra non a schermo intero:\ l'utente medio non chiude una nuova finestra per tornare indietro, ma tipicamente \textit{clicca sulla finestra retrostante}. L'effetto ottenuto \`e che lo schermo si riempie di finestre non volute, e cosa ancora peggiore, se l'utente ritorna in condizioni simili, il link che apre la stessa nuova finestra sembrer\`a non funzionare, quindi occorre fare molta attenzione all'apertura di nuove finestre o tab, anche se in alcune occasioni hanno ragion d'essere. Un problema correlato \`e il \textbf{pop-up}, che non sono altro che nuove finestre, ma aperte \textit{senza il permesso dell'utente}.
+
+\end{itemize}

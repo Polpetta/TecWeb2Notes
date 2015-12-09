@@ -1,0 +1,54 @@
+\section{Lezione del 27-11-15}
+
+%stiamo finendo di vedere le tecniche di hiding
+
+\paragraph*{Cloacking}Il cloacking \`e la strada pi\`u rapida per il ``ban'' dai risultati di ricerca di google.
+
+Con il cloacking si distingue tra gli utenti normali e gli spider di ricerca, mostrando pagine diverse. Questa tecnica \`e molto efficace e difficile da scoprire, perch\`e la pagina dev'essere confrontata da un umano.
+
+\subsubsection{Componente ipertestuale}
+Una buona parte di punteggio viene data dalla forma del web e dalla sua \textit{topologia di rete}.
+Uno strumento usato \`e il pagerank, che utilizza la seguente formula:
+
+\[ \pi_v = \sum_{(w,v) \in E}\frac{\pi_w}{d_v} \]
+
+Dova la sommatoria totale \`e pari a 1.
+
+La formulazione avviene attraverso le catene di Markov e utilizza random walks. \`E quindi il processo Markoviano corrispondente a un link. Questo modello siccome corrisponde a un attore che naviga scegliendo i link a caso nel web\footnote{Questo viene anche detto anche in gergo web ``scimmia'' (random surfer).}, e non corrisponde alla navigazione reale di un utente nel web, crea discrepanze tra quello che si fa realmente e quello che viene calcolato con il PageRank.
+
+Le \textit{spider traps} sono delle trappole per gli spider dei motori di ricerca dove un si viene ``intrappolati'' in un sito e non riesce pi\`u ad uscirne. Questi avvenimenti sono molti frequenti, per esempio:
+\begin{itemize}
+
+\item Lo spider tenta di ``catturare'' un calendario online (quindi continua a percorrere tutto il calendario)
+\item Problema island: in cui non \`e possibile decidere quale pagina \`e la pi\`u importante
+
+\end{itemize}
+
+Si \`e deciso quindi di cambiare la formula del PageRank, cambiandola con la cosidetta \textit{componente del teletrasporto}, che considera non solo la parte del punteggio tramite i link, ma anche quella del ``teletrasporto'', che assegna il punteggio in maniera democratica seguendo una determinata probabilit\`a.
+
+\[ \pi_v = (1- \epsilon) ( \sum_{(w,v) \in E}\frac{\pi_w}{d_v}) + \frac{\epsilon}{N} \]
+
+Questo permette di ``teletrasportare'' lo spider in un'altro punto casuale del web, impedendo di entrare in loop e di sballare i risultati del PageRank. \`E importante notare che il parametro $ \epsilon $ permette di gestire il livello di ``democrazia'' dei punteggi\footnote{$\epsilon$ pu\`o avere valore al pi\`u 1.}. 
+
+%\paragraph*{Totalrank}\`E stato sviluppato un altro algoritmo, che \`e la media di tutti i valori possibili del ``teletrasporto''. Il suo costo \`e lo stesso del pagerank.\newline
+
+%\[ T = \int_{0}^{1}  -- formula mancante
+%--------------------
+
+Un altro problema sono le ``dead ends'', dove si crea una struttura in cui gli altri siti puntano ad un sito che non fa ``uscire'' altri link, facendo aumentare il rank del sito che non punta ad altri. Per ovviare a questa situazione, Google e Bing hanno cambiato la struttura web e il modo di vedere i link all'interno dei loro sistemi. Questo complica ai SEO i calcoli che devono essere fatti per poter promuovere il proprio sito web.
+
+
+Sono quindi presenti due fattori importanti: i link entranti in un sito e i link uscenti. I link entranti nel sito aumentano molto il punteggio, ed esistono delle tecniche di base:
+\begin{itemize}
+
+\item \textbf{Infiltration}: consiste nell'``infiltrarsi'' in vari siti e cercare di inserire un link al proprio sito.
+\item \textbf{Honey Pot}\footnote{In italiano ``Barattolo del miele''}: consiste nel creare contenuto ``appetibile'', e quindi ricevere poi natualmente degli incoming link. Questo metodo dovrebbe essere il moto giusto per aumentare il proprio PageRank (tecnica etica). Nella pratica viene usata in modo poco etica, eseguendo il paste\&copy intelligente dal contenuto di altri siti.
+\item \textbf{Link Exchange}: consiste nel mettersi d'accordo con altri per scambiarsi i link
+\item \textbf{Resurrection}: consiste nel riprendere un dominio ``in vendita'' o non pi\`u usato. Questo perch\`e il dominio comunque detiene un certo punteggio.
+
+\end{itemize}
+
+Mentre per i link esterni si hanno dinamiche diverse. Il comportamento di PageRank infatti non ha avuto dinamiche prevedibili per i link esterni, questo a causa della tecnica del teletrasporto degli spider. Ci\`o si ripercuote nelle tecniche pi\`u avanzate:
+\begin{itemize}
+
+\item \textbf{Spam Farm}: creazione di una struttura apposita per l'incremento del punteggio tramite link. Una spam farm ottimale \`e: una pagina target e le altre che puntano in maniera bidirezionale a essa. Questa sfrutta una propriet\`a detta \textit{reachbility}, che \`e essenziale per gli spider. Un altro aspetto importante per questo \`e creare le cosiddette \textit{alleanze} tra siti, che permettono di mediare il PageRank tra i due siti se esse sono \textit{profonde}, mentre si ottiene pi\`u del massimo se esse sono di tipo \textit{superficiale}.

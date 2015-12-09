@@ -1,0 +1,64 @@
+\section{Lezione del 04-12-15}
+
+Per avere informazioni utili su $W^-$ si \`e cercato in diversi posti.
+
+\paragraph*{Email}L'``email space'' \`e uno spazio informativo virtuale molto ricco, in vario modo sottostimato finora dato che tecnicamente \`e distaccato dalla struttura Web (spazio URL-based). Notando lo spazio delle mail \`e possibile notare come siano presenti delle somiglianze con la struttura del web: un nodo \`e costituito da un indirizzo email, e si crea un link diretto dall'indirizzo email $E1$ all'indirizzo email $E2$. Sono naturalmente possibili modellazioni pi\`u sofisticate: ad esempio, i nodi potrebbero essere le singole email, o email threads etc etc.
+
+\paragraph*{Spazi email e web}
+
+Ogni volta che un'email menziona un URL, viene creato un link corrispondente da quell'indirizzo email alla pagina web rappresentata da quell'URL, oppure, quando da una pagina web menziona un certo indirizzo email, viene fatto un link da quella pagina a quell'indirizzo, creando un ``super-web'' molto pi\`u grande di quello precedente.
+
+Spesso si parla della ``popolarit\`a'' di una pagina web: ora, l'integrazione degli spazi email porta questo concetto ancora pi\`u in l\`a.
+
+\paragraph*{Gestione del Janus Graph per l'email}
+
+Le mail vengono applicate nella considerazione delle due ``facce'':
+
+\begin{itemize}
+
+  \item[Buona] si possono considerare misure positive di ``activeness'', a seconda di come/quando le email inviate ad un certo indirizzo ricevono risposta o meno. Come nel classico spazio web, quest'informazione si pu\`o integrare con altre caratteristiche come l'et\`a (quando l'account \`e stato creato) e la history (es. calcolare la \textit{misura integrale} dell'activeness nel tempo).
+
+  \item[Cattiva] negli indirizzi mail la ``cattiveria'' \`e associabile allo spam. Ogni qual volta una email viene classificata come spam, a quell'indirizzo e a tutti gli URLs/URIs dentro quella mail pu\`o essere assegnata un po' di ``cattiveria''. Ogni volta che una mail viene segnalata come spam viene segnata con un valore ``maggiore'' di cattiveria. Uno dei motivi per cui Gmail \`e stata acquistata da Google \`e per ottenere un maggior numero di informazioni possibili. Ogni segnalazione di spam su Gmail si riverbera sui risultati di ricerca.
+
+\end{itemize}
+
+I motori di ricerca odierni vanno oltre la ``scatola chiusa'' del web, collegandosi ad altri mondi. Gli ``attacchi'' nel mondo delle mail son pi\`u difficili da fare, in quanto le mail sono pi\`u di ``natura sociale''. Inoltre sono stati innalzati dei ``muri'' per la creazione degli indirizzi mail (vedasi  i CAPCHA). I CAPCHA presentano un problema di usabilit\`a per gli utenti, ma viene messo per garantire di avere un certo controllo sull'ambiente, avendo la garanzia di avere servizio usato da umani.
+I vantaggio del mondo email \`e che possono essere pi\`u facilmente \textit{tracciati}, al contrario delle pagine web. \`E molto pi\`u facile distinguere tra comportamenti \textit{reali} e \textit{artificiali}.
+
+\paragraph*{Altri spazi in cui trovare l'informazione}
+
+Un altro passaggio ulteriore \`e stato di non considerare solamente i sistemi informativi, ma anche i sistemi sociali: SIS\footnote{Social Information System.}. Un problema che si incontra quando si tenta di estendere tutto ci\`o considerando anche le persone sono le identit\`a. Un information system dove a ogni oggetto viene assegnato uno UID\footnote{User Identifier.}, rispetta il cosidetto \textit{identity mapping}. Infatti con UID diversi con altra probabilit\`a si sta parlando di utenti diversi, e quindi tenendo sempre il modello astratto semplice e modulare, il ranking pu\`o essere fatto agire direttamente su di un SIS. Esistono diversi modi per migliorare il ranking:
+
+\begin{itemize}
+
+\item Social rankings: in modo canonico quasi ogni ranking usa flussi basati su cammini. A ogni path flow si pu\`o facilmente assegnare una ``taglia sociale'', corrispondente alla taglia dell'ambiente sociale (quanti utenti) che lo ha creato. \`E quindi facile produrre un social Pagerank come anche altri social rankings!
+
+\item Social Pagerank: l'attuale ranking di Google gi\`a incorpora alcune componenti di Social Pagerank. Quindi l'acquisto di pi\`u domini dalla stessa persona e il tentativo di utilizzare le tecniche di Spam Farm e simili valgono molto poco. Attualmente sono in sviluppo anche tecniche di Social Pagerank che si basano sulla analisi della scrittura dei testi (come per esempio i blog). Ogni UID viene assegnato alle pagine in base all'autore: link agli articoli di uno stesso autori sono poco significativi, mentre link allo stesso dominio ma di autori diversi hanno un maggior valore.
+
+\end{itemize}
+
+Dopo l'utilizzo delle mail, si sta migrando verso la cosiddetta sociosfera informativa, dove ogni tipologia di sito ha un ranking basato su determinate azioni. Per esempio in un Wiki il rank varia in base alle diverse modifiche eseguite da pi\`u autori su una voce, o in Google Play Store un'app ha posizione in base alla sua discussione e altri fattori.
+
+\subsection{Nomi nel Web}
+
+Esistono due tipologie di nomi: lato sociale e lato tecnico.
+
+\subsubsection{Lato sociale}
+
+\`E fondamentale scegliere un buon nome per un indirizzo web. Ci sono alcune regole che massimizzano il potenziale successo di un sito. In media il 10-20\%, ma \`e possibile arrivare fino ad un +40-50\% di influenza.
+
+Esistono diverse regole per la scelta di un giusto nome:
+
+\begin{enumerate}
+
+\item Usare nomi corti
+\item Nome unico e non simili con altri nomi, non scegliere un plurale quando il singolare \`e gi\`a preso
+\item Prendere il dominio .com. Questo ha un impatto medio del +4.5\%
+\item Dovrebbe essere facile da memorizzare e scrivere
+\item Meglio scegliere parole esistenti pittosto che inventarsene di nuove. In ogni caso, se si usano parole nuove o acronimi, conta il rapporto tra parole ``standard'' e quelle nuove: pi\`u alto \`e il rapporto, meglio \`e. Il range va dal +1.5\% a -5\%.
+\item Bisogna riporre attenzione al suono. La regola intuitiva \`e che deve ``suonare bene'', dev'essere piacevole e armonioso. Nella pratica questo \`e stato calcolato: in inglese i nomi che cominciano con una vocale funzionano bene (circa +3.7\%). Le semivocali (r, j, y, w) funzionano bene (+2.9\%). Le consonanti di tipo f, v, s, z funzionano ancora meglio (+3.3\%). Le consonanti come p, k, t funzionano meglio delle restanti (+1.9\%). Suoni associati con parole brutte (tipo ``uh'') creano danno al sito fino ad un -44\%. In altri contesti, ad esempio materiale adulto, generano vantaggi al sito fino ad un +7\%.
+\item Niente trattini. Si ha un impatto pre-sito del -3\%
+\item La regole del ``nessun numero'' (regola che si trova in giro su internet) \`e falsa. Anzi, i numeri aiutano, con un impatto del +8.2\%.
+\item \textbf{Importante}: attenzione a come controllare se un nome \`e libero o no. Ci si crea una lista di nomi liberi, e si scarta quelli occupati per far rimanere solo quelli liberi. \`E importante fare attenzione perch\`e questo ciclo pu\`o diventare sbagliato, in quanto nei siti di vendita dei siti di domini potrebbero raccogliere i nomi che si cercano. \`E importante fare attenzione e usare \textbf{internic}, che \`e un servizio governativo e istituzionale, che ha delle politiche di privacy.
+
+\end{enumerate}

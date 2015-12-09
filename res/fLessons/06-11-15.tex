@@ -1,0 +1,28 @@
+\section{Lezione del 06-11-15}
+
+\subsection{Ricerca nel sito}
+
+Esiste la ricerca esterna (es Google) e la ricerca interna al sito. La soglia critica per la ricerca interna \`e: per pi\`u di 100 pagine \`e \textit{necessario} usare qualche tool di ricerca, mentre oltre 1000 \`e \textit{cruciale} usare un buon tool di ricerca.
+
+In media, il 100\% usano la ricerca di funzionalit\`a del sito, rendendola molto importante. Gli utenti essendosi abituati ai motori di ricerca li usano per navigare velocemente, ed \`e quindi normale per loro che ci sia in un sito web. Inoltre il problema del \textit{deep linking} evidenzia come un utente possa essere catapultato in una qualsiasi pagina web del sito, e per continuarne la navigazione pu\`o o tornare alla home oppure pu\`o usare la casella di ricarca. Quando accade il deep linking, il 60\% degli utenti usa le funzionalit\`a di ricerca (se c'\`e), mentre il 40\% usa la navigazione normale.
+
+\subsubsection{Ricerca locale}
+
+Google o altri motori di ricerca possono fornire una ricerca in locale (con \textit{site}), i vantaggi sono costo zero nello sviluppo, ma i svantaggi sono che gli algoritmi usati da Google sono progettati per ricerche su larga scala, e non funzionano bene su bassa scala ed inoltre se un utente \`e gi\`a arrivato al sito tramite motore e non ha trovato subito quello che voleva \`e indice che il motore non riesce a dare una buona risposta per quella domanda sul sito. Inoltre i motori di ricerca non indicizzano tutto il sito web, quindi potrebbe essere che il sito non sia completamente indicizzato con un conseguente peggioramento dei risultati di ricerca.
+
+\paragraph*{Creazione di una ricerca interna sul sito}\`E necessario chiedersi che modalit\`a di ricerca preferiscono gli utenti, e la funzionalit\`a di ricerca normale dev'essere molto simile a quella dei motori di ricerca, con un \underline{box testuale} per la ricerca e un \underline{pulsante} con la scritta ``Search''\footnote{In italiano ``Cerca''.} o con l'icona della lente per effettuare la ricerca.
+Il principio \textbf{``less is more''}, afferma che \`e meglio aver qualcosa di pi\`u semplice, e questo principio \`e applicabile anche alla semplicit\`a con cui si devono presentare gli strumenti di ricerca.
+
+
+\paragraph*{Ricerca vincolata}La ricerca classica nei siti pu\`o essere presentata con la cosiddetta \textit{constrained search}, dove tipicamente dev'essere data in aggiunta alla ricerca classica. I pro della ricerca vincolata data in aggiunta alla ricerca classica \`e che \`e molto gradita dagli utenti, ma per contro occorre stare attenti a come si implementa, dato che non fa parte dei motori di ricerca classici. Esistono due modi di fare ricerca vincolata: in modo statico e dinamico:
+\begin{itemize}
+
+\item Ricerca Dinamica: appena l'utente riempie il campo parte la ricerca
+\item Ricerca Statica: l'utente deve premere il pulsante per effettuare la ricerca
+
+\end{itemize}
+Il problema della ricerca statica \`e che il pulsante non essendo standard pu\`o mettere in confusione l'utente. Per contro la ricerca dinamica richiede qualche secondo (in quanto esegue ogni volta la ricerca) causando che molti utenti si stufino aspettando il risultato. La ricerca vincolata sembra essere la ricerca migliore, ma dipende da quanti vincoli ci sono nella ricerca: se i vincoli sono 1, la dinamica \`e superiore, ma se aumentano c'\`e una dilatazione del tempo, con un aumento della attesa per ogni vincolo settato e un carico maggiore nel server. \`E anche possibile adottare una soluzione ibrida: viene lanciata automaticamente la ricerca quando tutti i vincoli sono stati riempiti.
+Una funzionalit\`a molto rischiesta dagli utenti \`e la possibilit\`a di fare sorting dei risultati in maniera \underline{bidirezionale}.
+
+
+\`E necessario saper gestire quando non ci sono risultati nella ricerca, e possiamo dire che non ci sono stati risultati o che ci sono stati zero risultati. Dire all'utente che non ci sono stati risultati lo confonde e lo porta a pensare che la funzione di ricerca non vada. Dare 0 risultati \`e meglio in quanto l'utente ne viene a conoscienza e capisce che non ci sono risultati. Rohe oltre a dire ``Less is more'' diceva anche ``God is in the details'', quindi \`e importante curare anche i dettagli. Ottenere 0 risultati in una ricerca \`e come ottenere un codice 404, detto anche ``dangling link''.

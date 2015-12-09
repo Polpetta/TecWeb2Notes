@@ -1,0 +1,40 @@
+\section{Lezione del 22-10-15}
+
+Ci sono delle precauzioni che dovremmo considerare quando inseriamo del blocco di testo, come ad esempio evitare il caps lock che nella netiquette corrisponde all'''urlo''. Il testo tutto maiuscolo si legge pi\`u lentamente e ci vuole minimo il 10\% in pi\`u per leggere un blocco di testo in caps lock rispetto a uno normale. Questo perch\`e di solito la mente umana processa testo scritto in minuscolo, e questo causa un rallentamento nella lettura e un aumento di fatica computazionale, che lascia una sgradevole sensazione dopo la lettura.
+
+Un'altra tentazione \`e quella di usare grafica al posto del testo e questa soluzione porta a vari problemi:
+\begin{itemize}
+
+\item Il testo non scala (o se scala sgrana)
+\item Aumenta il carico della pagina (diventa pi\`u pesante)
+\item Non permette il copia-incolla
+\item Interagisce male con i motori di ricerca, in quanto per i motori di ricerca attuali una immagine \`e una ``scatola nera'' che non interagisce con l'immagine.
+
+\end{itemize}
+
+\paragraph*{Maledizione del Lorem Ipsum} La tecnica del Lorem Ipsum\footnote{Deriva da un testo di Cicerone ``I limiti del bene e del male''.} \`e una tecnica fallimentare insegnata in corsi di Web Design, dove viene disegnato il layout e il testo viene riempito temporaneamente con il testo del Lorem Ipsum. Il vantaggio di questa tecnica \`e la modularizzazione del layout visivo con il contenuto, ma in questo modo il layout visivo diventa la priorit\`a e il testo diventa una componente secondaria, mentre dovrebbe essere il contrario. \textit{Per strutturare il testo bisogna avere contenuto}. Un altro problema generato dall'uso di questo design \`e il \textit{testo ghigliottinato} causato da un troncamento improvviso del testo.
+
+\paragraph*{Azione degli utenti all'interno di una pagina web} All'inizio della navigazione, l'utente entra in una modalit\`a di ``scanning'' della pagina in cui viene data una visione veloce del sito. Ci\`o comporta una visita non ordinata della pagina dove vengono analizzate le componenti in maniera veloce, e viene creata una immagine mentale dell'informazione. Questo scan avviene in maniera continua utilizzando gli occhi e ci\`o comporta che un buon design minimizzer\`a lo sforzo di scanning degli utenti, tenendo conto che viene fatto come \textit{una linea continua}.
+Quando l'occhio incontra grossi blocchi testuali non riesce a fare lo scanning veloce e si ha un aumento di fatica perch\`e non si riesce a mapparlo, ma rimane un'incognita. Se invece non c'\`e un unico blocco di testo allora \`e possibile creare le varie associazioni mentali. Occorre quindi dare una struttura al testo per dar modo agli utenti di modellare una buona mappa informativa.
+
+\paragraph{Strutturazione del testo} Sono presenti vari modi per strutturare il testo, ed \`e meglio strutturare testo in blocchi fini. Un modo per strutturare meglio il testo \`e:
+\begin{itemize}
+
+\item Tramite \textbf{titoli descrittivi}: in generale, ogni blocco di testo rilevante dovrebbe avere un titolo significativo, e questo aiuta a creare una categorizzazione primaria
+\item Le parole chiave all'interno del testo (\textbf{keyword}) devono essere brevi e pertinenti, rendendo lo scanning facile e veloce: infatti ogni blocco viene ``saltato'' e solo la keyword assimilata\footnote{Un esempio in twitter sono gli hashtag: servono per evidenziare le parole chiave in fase di scan}. Ad esempio i link si notano come e pi\`u delle parole chiave e dovrebbero seguirne gli stessi principi (evitando nomi uguali ed il ``clicca qui'').
+
+\item Attraverso l'utilizzo di \textbf{liste itemizzate}, ordinate o no. Migliorano il grado di soffisfazione dell'utente del $+47\%$! Esse vanno usate tipicamente quando si hanno almeno $4$ elementi. Le liste che hanno meno di tre elementi generano affaticamento all'utente, producendo un effetto contrario. Un utilizzo eccessivo di liste disposte verticalmente genera un decadimento \textit{lineare} della loro efficacia e \textit{esponenziale} con il numero di liste disposte orizzontalmente
+
+\item Evitare lo scroll interno al sito, in quanto \`e devastante rispetto allo scroll esterno del browser. Uno scroll interno indica una progettazione fallimentare nella creazione del sito
+
+\end{itemize}
+
+L'``effetto bionda'' \`e quell'effetto per cui durante la fase di scanning si ha una percezione completamente sbagliata di un oggetto nella pagina che viene considerato in maniera negativa dall'utente.
+
+\subsection{Siti commerciali}
+
+I siti (e-)commerce hanno delle particolarit\`a e la cosa pi\`u importante in un tale sito \`e il prodotto che si vende, ma non \`e l'unica. Per l'utente medio, la componente pi\`u importante, alla pari del prodotto, \`e \textit{il prezzo}. La regola fondamentale da tenere a mente \`e che gli utenti vogliono sapere il prezzo del prodotto in modo semplice. Il posto in cui il prezzo va inserito \`e quanto pi\`u possibile vicino al prodotto, come accade nei negozi fisici.
+
+L'iper-associazione causa molto fastidio agli utenti in quanto per ricevere informazini sul prezzo \`e necessario vedere i dettagli del prodotto, causando un alto costo computazionale. Gli utenti infatti tendono ad associare il prodotto con il prezzo e la iper-associazione provoca mancanza di informazione primaria. L'utente \`e costretto ad eseguire un \textbf{gambling click} per completare l'informazione ``prodotto-prezzo'': questo genera un grande stress mentale ($-40\%$ di gradimento) e non attira gli utenti. Se un utente non \`e fidalizzato, solamente il 30\% clicca su un gambling click.
+
+Uno dei problemi sui prezzi pu\`o essere che alle volte non c'\`e un prezzo definito, causando un fallimento completo perch\`e all'utente interessa principalmente il prezzo. La soluzione \`e dare un prezzo in ogni caso, e quando non \`e disponibile \`e meglio dare un prezzo approssimato o un range di prezzi.

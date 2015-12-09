@@ -1,0 +1,40 @@
+\section{Lezione del 26-11-15}
+
+\paragraph*{Ricerca google}Nella pagina di ricerca google la sezione immagini nella ricerca normale \`e stata introdotta perch\`e si \`e visto che le immagini hanno effetto sospensivo e i timer si rilassano.
+
+\subsubsection{Tecniche per il calcolo del punteggio di una pagina}
+Esistono diverse tecniche per entrare in classifica nei motori di ricerca, ed esse possono essere: spamdex\footnote{spam index}, SEO, SEP.
+
+\paragraph*{Calcolo del punteggio di una pagina}Il calcolo del punteggio di una pagina viene diviso in base al tipo di contenuto, ovvero se testo o se immagini. Se il contenuto \`e testo allora si parla di \textit{TFIDF}\footnote{Detto anche TF-IDF, acronimo di Term Frequency Inverse Document Frequency.}, e serve a capire quando una parola \`e importante per una pagina. La frequenza inversa del documento si calcola con la frequenza della parola nell'insieme dei documenti, scalato logaritmicamente.
+Ad esempio:
+\begin{itemize}
+
+\item Avendo un sito di 1000 pagine, ipotizzando ``il'' appaia in 980 pagine $\to$ 98\% di frequenza $\to$ IDF di $\log(\frac{1}{0,98}) = 0,008$ }
+\item Avendo un sito di 1000 pagine, ipotizzando ``pippo'' appaia in 100 pagine $\to$ 10\% di frequenza $\to$ $\log( \frac{1}{0,1}) = 1 $
+\end{itemize}
+
+Riassumendo, quando al motore di ricerca gli viene fatta una query di un certa parola $p$, egli prende tutte le pagine dove appare $p$ e calcola il loro TFIDF e se sono presenti pi\`u match allora ne calcola la loro somma.
+
+\paragraph*{Keyword}\`E quindi importante definire delle \textit{keyword}, per cercare di alzare il loro TFIDF. Esistono diverse tecniche per inserirle all'interno di un sito web, e sono:
+\begin{itemize}
+
+\item \textbf{Body spam}: si inseriscono le parole nel body della pagina HTML (semplice ed efficace, ma ha lo svantaggio che \`e un effetto visibile all'utente)
+\item \textbf{Title spam}: il contenuto viene toccato meno o comunque su una parte di pagina a cui l'utente non fa molto caso
+\item \textbf{Meta tag spam}: le keyword vengono scritte dentro il contenitore apposito. Questo ha il vantaggio di non toccare il contenuto della pagina web, ma essendo abusato il punteggio dei motori di ricerca per questo meta-tag \`e molto basso
+\item \textbf{Anchor text spam}: \`e una tecnica in cui le keywords vengono inserite nell'anchor text. Questo porta come vantaggio la generazione di punteggi speciali, ed ha come particolarit\`a che le Keywords su un link vengono aggiunte anche nel target del link. Il bonus inoltre viene dato con meno limiti per TFIDF.
+\item \textbf{URL Spam}: le keyword vengono aggiunte direttamente nell'indirizzo web, in quanto alcuni motori analizzano anche gli indirizzi delle pagine e danno bonus simili a quelli dell'anchor text spam.
+
+\end{itemize}
+
+\`E importante tenere conto anche della forma con cui le keywords vengonono inserite in una pagina web. Esistono diverse tipologie:
+\begin{itemize}
+
+\item Repetition: si ripete la parola pi\`u volte
+\item Dumping: si interiscono tantissimi termini usati poco, anche se non c'entrano nulla
+\item Weaving: si prendono pezzi di pagine web e si inseriscono al loro interno le kaywords volute (in maniera randomica)
+\item Stitching: si esegue il paste\&copy di frammenti di pagine web diverse e le si ri-assembla
+\item Broadening: si inseriscono i sinonimi alle keywords, in modo da coprire meglio il campo delle query su cui si viene intercettati
+
+\end{itemize}
+
+Da tenere conto \`e anche la scelta delle keyword: si deve basare su cosa ``vogliono'' gli utenti.

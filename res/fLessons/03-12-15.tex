@@ -1,0 +1,47 @@
+\section{Lezione del 03-12-15}
+
+\`E possibile espandere le alleanze non solamente a due siti, ma anche a un numero maggiore. Esiste non solo la generalizzazione \textit{ring}, ma \`e possibile creare un anello bidirezionale, detto anche \textit{cuore completo}, che presenta varie propriet\`a.
+
+\subsubsection{Comportamento dei motori di ricerca}I motori per controbattere le alleanze tentano di identificare e comprendere le strutture ad anello. Ma se se si formano l'unione delle pagine, creando un grafo fortemente connesso (ovvero da ogni pagina arrivo a un'altra) si \`e in grado di aggirare questo problema. I grafi fortemente connessi sono anche utili per la \textit{reachability}, una ottima propriet\`a per un'alleanza web.
+
+I motori di ricerca ora cercano unioni di siti tra grafi fortemente connessi, ma maggiore \`e l'unione dei siti pi\`u \`e difficile per i motori di ricerca trovare queste alleanze.
+
+\paragraph*{Sequenza A003030}Il modo migliore per creare un'alleanza si definisce tramite la sequenza \textit{A003030}\footnote{Trovabile online nella ``grande enciclopedia delle sequenze''.}. Questa sequenza \`e molto potente, e gi\`a in 10 siti alleati il motore di ricerca non riesce a identificare eventuali alleanze. I motori di ricerca per evitare ci\`o adottano delle contromisure pi\`u sofisticate. Attualmente in Google vengono applicate due contromisure principali:
+\begin{itemize}
+
+\item Viene rimossa la parte del ``Teletrasporto'' del PageRank e viene confrontata con la versione con Teletrasporto, ottenendo il \textit{valore di massa di spam relativa}, valore che permette di identificare eventuali alleanze. Infatti se il valore di Teletrasporto \`e molto grande allora i motori di ricerca sono in grado di percepire che un sito sta tentando di spostare il ``flusso'' verso di se. Il rate di successso di questa tecnica \`e del valore del $95\%-100\%$.
+
+\item Utilizzando la struttura del web\footnote{\`E una struttura ad altissimo livello.}, che assomiglia a un papillon, \`e possibile effettuare una contromisura efficace a basso costo computazionale. Se analizzando la struttura del sito web si trova che essa differisce troppo dalla struttura media degli altri siti web allora \`e probabile che ci sia qualcosa che non va. La media viene effettuata su una ``lastra'' dei link entranti da Google, da cui \`e possibile tracciare una norma e da li notare i siti che si discostano da essa. Questa tecnica produce molto successo.
+
+\end{itemize}
+
+\subsubsection{Misure attuali del PageRank}
+La misura del PageRank, come gi\`a visto \`e dato in parte dal flusso e in parte dal trasporto. Si \`e cercato soprattutto di migliorare la qualit\`a della ricerca complessiva soprattutto sul fattore di ``teletrasporto'' ($\frac{\epsilon}{N}$).
+Cambiando il teletrasporto \`e possibile ottenere valori pi\`u sensati, ottenendo una formula che genera un rank molto migliore. Questo teletrasporto generalizzato viene detto \textit{personalize PageRank}, in cui cio\`e i nodi non sono tutti uguali, ma sono pesati. Questo causa al modello di diventare pi\`u simile a una navigazione reale.
+
+Quindi in base all'utente sono presenti diverse preferenze. Se l'utente \`e Google allora potrebbero venire penalizzati alcuni siti in base a delle scelte arbitrarie, incorporandole poi nell'algoritmo di teletrasporto. Il PageRank usato da Google attua questa politica, e alcune correzioni vengono fatte a mano, e non \`e una misura assoluta (e tantomeno quindi ``democratica'' nel senso di oggettiva e imparziale). Ad esempio SearchKing \`e stato per motivi commerciali penalizzato da Google Stesso.
+
+\paragraph*{PageRank personalizzato}Per l'utente singolo \`e possibile calcolare un PageRank ``personalizzato''. Questo comporta un costo molto oneroso, in quanto deve essere creato un PageRank per ogni utente navigante nel web. Se per esempio nel web ci fossero $N$ pagine e fossero possibili solamente il valore ``mi piace'' e ``indifferente'' avremmo $2^N $ personalizzazioni possibli. In realt\`a il pagerank personalizzato \`e linearmente componibile, ergo \`e possibile combinare pagerank personalizzati senza ricalcolo, quindi da $2^N $ si passa a $N$ pagerank personalizzati che comunque rimane la taglia del Web. Per ovviare a questo problema Google esegue il \textit{topic pagerank}, creando profili che ``approssimino'' varie tipologie di utente, in base agli argomenti visitati dagli utenti, e su di esse viene \textit{precalcolato} il PageRank personalizzato. In questo modo dai profili ``grezzi'' \`e possibile creare dei profili astratti in base agli interessi, da cui \`e possibile quindi creare una pubblicit\`a migliore.
+
+Il PageRank personalizzato \`e compatibile con tutte le contromisure (massa di spam relative, e tutte le tecniche basate sulla struttura web).
+
+
+\subsubsection{Funzionamento dei motori di ricerca}
+
+Fino a poco tempo fa, studiare i sistemi di ranking si basava solamente sulla ``bont\`a'' di un sito. Al giorno d'oggi, le misure sono cambiate. Le contromisure erano viste come una ``patch'', un aggiustamento, piuttosto che una caratteristica di prima classe.
+
+La visione pi\`u recente dei siti web si basa sul fatto che nel ranking esistono due lati: quello buono e quello cattivo, e ogni pagina ne presenta un tratto.
+\`E necessario oltre al lato buono di una pagina darne anche un lato ``cattivo'', ed \`e necessario sviluppare una maniera automatizzata per determinare ci\`o.
+
+Prendendo ispirazione dalla divinit\`a romana Giano (bifronte) e calandolo nel lato tecnologico predono vita i \textit{grafi di Giano}\footnote{Detto Janus graph.}, dove ogni nodo (pagina web) non ha un valore, ma presenta due valori: una parte ``positiva'' e una ``negativa''. Questi grafi bipesati sono le ``due facce'' di un nodo, che vengono combinate nel calcolo del rank finale per generare ricerche adeguate.
+Considerando $R_{GOOD}(G^+)$ il lato buono e $R_{BAD}(G^-)$ si pu\`o considerare il tutto come una combinazione lineare:
+
+\[ \alpha \cdot R_{GOOD}(G^+) - \beta \cdot R_{BAD}(G^-) \]
+
+Il problema di tutto ci\`o si riversa nel fatto che ora dovrebbero esistere due funzioni di ranking, un ``anti-pagerank'', avendo il doppio dei problemi e il doppio dei pesi: $W^+$ e $W^-$.
+
+\paragraph*{Gestione del doppio ranking}Per evitare di avere due algoritmi di ranking \`e possibile avere una estensione del ranking attuale, che si identifica come la \textit{estensione di Giano}. Essendo l'una lo specchio dell'altra risultano essere anche lo specchio della struttura web, e quindi \`e possibile ragionale sul web ``al rovescio'', generando un web duale $G^\#$. Dalla misura ``buona'', si ottiene la sua estensione:
+
+\[ R^J = R(G^+)-R((G^\#)^-) \]
+
+Dove quindi con la stessa formula si ottiene la misura di $G^\#$.

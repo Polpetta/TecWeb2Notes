@@ -1,0 +1,43 @@
+\section{Lezione del 16-10-15}
+
+\paragraph*{Video} Una soluzione a basso costo computazionale \`e il \textit{video}\footnote{L'esempio pi\`u ecclatante \`e la TV, che anche con la nascita di internet \`e sopravissuta, in quando ha costo computazionale praticamente 0}, per\`o ci son dei problemi:
+\begin{enumerate}
+
+\item Utilizzo della banda (lato server): servono molte risorse per gestire i video\footnote{Si veda per esempio Google con Youtube e la costruzione della sua rete}
+
+\item I video tipicamente fanno sforare alla grande i timer degli utenti. Il tempo medio consigliato \`e \textbf{1 minuto}, mentre il tempo massimo \`e \textbf{2 minuti}: vanno inseriti con attenzione studiando il target degli utenti. Eccezioni sono per esempio YouTube che \`e come se fosse una TV.
+
+\end{enumerate}
+
+\subsection{Problemi di metafora visiva}
+
+I problemi di \textit{metafora visiva} si hanno quando si da agli utenti una certa aspettativa visiva che viene poi delusa, come ad esempio interferire con il normale funzionamento dei pulsanti.
+Le metafore visive non hanno solo a che fare con scrolling e link, possono essere anche visive.
+
+Un altro problema \`e la eccessiva convergenza fra desktop e web, ovvero portare nel mondo web situzioni che ci sono nelle interfaccie desktop.
+
+\paragraph*{Men\`u} Sono un potente mezzo per i desktop, gli utenti sono relativamente abituati al loro uso, quindi l'idea \`e stata quella di ricreare i menu dentro all'ambiente web, con i vantaggi che non serve training e la navigazione web che si ha \`e una navigazione rapida. Son presenti anche degli svantaggi: la natura del men\`u nei desktop indicano comandi, mentre nel web indicano informazione: la struttura \`e sempre ad albero, ma potenzialmente c'\`e molta pi\`u informazione che non comandi con il rischio di esplosione dei men\`u. La situazione peggiora di molto se si pensa alle considerazioni sulla \textit{taglia}. Un altro problema \`e combinare due elementi che singolarmente sono buoni strumenti, ma messi assieme creano un effetto disastroso: nel web questo si ha con l'interazione tra mouse e men\`u:
+\begin{itemize}
+
+\item L'83\% degli utenti non riesce a centrare la giusta casella nei men\`u web
+
+\item Il 54\% esce fuori dai men\`u, il che significa che il men\`u si chiude e dobbiamo ricominciare a navigare, aumentando il livello di frustazione
+
+\item Problema del \textit{path finding}. Come si muovono gli utenti nello schermo? Quando un utente vuole andare da A a B in una pagina web ci va \textit{seguendo un linea retta}, in quanto \`e il meno costoso computazionalmente. Questo causa che quando si passa sopra a dei layout con il mouse, si ha il rischio di andare ``sopra'' ad alti men\`u facendoli attivare, o di uscire dal me\`u corrente facendolo scomparire. Ci\`o provoca agli utenti di forzare l'algoritmo di path finding (ovvero seguire il layout del me\`u), causando moltissima frustazione. Statisticamente a causa di questo effetto si ha che il 92\% delle volte si esce da cammino del men\`u. Nel caso di men\`u multilivello il massimo livello dovrebbe essere \textbf{due}; inoltre bisognerebbe tener conto della regola del cammino pi\`u breve e quindi disegnare men\`u \textbf{fault-tolerant}\footnote{Il men\`u non si chiude subito quando si esce, e permette di salvare la situziazione salvando l'utente dal cambiare algoritmo di path finding} per tali percorsi.
+
+\end{itemize}
+
+\subsection{Analisi testo delle pagine Web}
+
+Oltre ai timer degli utenti legati al testo, esistono altre considerazioni da tener conto (regole fondamentali del testo):
+\begin{enumerate}
+
+\item Il testo dev'essere leggibile: inutile diminuire la grandezza del font per mettere pi\`u informazione. Il testo dovrebbe avere una grandezza minima\footnote{Riferite al mondo desktop} corrispondente almeno a \textit{10 punti su ogni schermo}.
+
+\item Ci sar\`a sempre qualcuno a cui il testo non va bene, quindi sarebbe bene fornire versioni differenti (dare l'opzione per cambiare la grandezza del testo)
+
+\item ``Il testo \`e testo'', significa che l'utente dovrebbe riconoscerlo come tale, non come cose diverse: quindi ad esempio bisogna stare attenti ai font utilizzati. La regola d'oro \`e di usare un solo font, al massimo 2. Il font Verdana si \`e visto essere molto usabile.
+
+\item Attenzione al contrasto.
+
+\end{enumerate}
