@@ -1,0 +1,59 @@
+\section{Lezione del 10-12-15}
+
+\subsubsection{Lato tecnico}
+
+\paragraph*{URI}Gli URI si distinguono dagli URL, e non vanno confusi. Gli URI sono un sovrainsieme degli indirizzi web. Ad esempio un www.sito.it non \`e un URI corretto, e non esiste negli standard: la voce corretta sarebbe http://www.sito.it. URI sono anche indirizzi mail.
+
+\paragraph*{Differenze tra URIs, URLs, URNs}Gli URL stanno per \textit{Uniform Resource Locator}, ovvero gli URL attraverso la loro rappresentazione ci indicano il modo per arrivare alla risorsa. Quindi gli indirizzi ``http://...'' sono URLs.
+
+URNs significante \textit{Uniform Resource Name} sono identificatori che restano unici e persistenti che durano anche quando la risorsa cessa di esistere o non \`e pi\`u disponibile.
+
+Un URI pu\`o essere \textit{assoluto} o \textit{relativo}. Se assoluto \`e gi\`a ``completo'' cos\`i com\`e, mentre se relativo non \`e completo, per essere completato deve essere trasformato in un URI assoluto tramite informazione derivante dal contesto.
+
+\paragraph*{Struttura di un'URI}La loro struttura di un'URI si rappresenta nella seguente maniera:
+\begin{verbatim}
+Struttura:parte-dipendente-dallo-schema
+\end{verbatim}
+
+Lo schema \`e quello che definisce la \textit{semantica} (il significato) dell'URI. Gli URI in generale possono essere parte di due grosse famiglie: possono essere gerarchici quando la loro forma \`e:
+\begin{verbatim}
+Schema :// authority path ? query
+\end{verbatim}
+
+Le autortiry, rappresentano l'\textit{autorit\`a}, ovvero \`e l'elemento che indica l'autorit\`a, e che risponde in caso di problemi. La \textit{path}, ``cammino'', si compone di zero o pi\`u segmenti, ognuno della forma:
+\begin{verbatim}
+/segmento
+\end{verbatim}
+Nota: lo hash(\#) \`e un carattere riservato per gli URI, e serve per delimitare l'URI di un oggetto con un identificatore di un frammento interno alla risorsa considerata.
+La \textit{query} presenta l'informazione interpretata dalla risorsa.
+
+Gli URI possono essere anche opachi, quando manca il simbolo ``/''. Per esempio:
+\begin{verbatim}
+mailto:director@cnn.com
+\end{verbatim}
+rappresenta un URI opaco. Nota che anche in questo caso \`e possibile passare argomenti nella query. Altri esempi di URI possono essere i numeri di telefono (tel) o fax (fax) e altri.
+
+\paragraph*{URNs}Gli URN sono indirizzi web di tipo opaco, e significa \textit{Uniform Resource Names}, e hanno la forma tipica:
+\begin{verbatim}
+urn:NID:...
+\end{verbatim}
+Per esempio, gli identificativi ISBN sono URN, rappresentano un nome di un libro, che non \`e detto che sia ancora disponibile. \newline
+
+
+Gli URI, URL, URN usano gli ASCII, ma dato l'espansione del suo utilizzo di \`e passato dall'URI all'IRI\footnote{Che sta per Internationalized Resource Indentifiers}, che adotta un set di catatteri pi\`u ampio. Da qui sono nati gli IDN, che possono essere usati anche nelle estensioni web.
+
+Ci\`o ha portato ad un maggior rischio agli \textit{attacchi omografici}. Infatti \`e possibile che siano presenti indirizzi graficamente uguali ma i simboli provengono da altri alfabeti.
+
+\paragraph*{Problema di Opacit\`a degli URI}Il significato di:
+\begin{verbatim}
+http://www.sito.it/a/b.html
+\end{verbatim}
+non indica necessariamente che il sito sia in italiano, o che il sito si trovi in italia, in quanto questi indicano solamente dei nomi. Queste informazioni infatti non sono fornite dall'URL. L'URL rappresenta una \textit{stringa opaca} da cui non \`e lecito inferire alccuna propriet\`a della risorsa corrispondente. HTTP fornisce metodi (\textit{content negotiation}) per capire il formato dati. La parte finale dell'URL non \`e attendibile.
+
+Un altro problema riguada i TLD (\textit{Top Level Domain}). La tendenza \`e di sovradimensionare i TLD, creandone troppi. La proposta \`e iniziata con creare nuovi TLD per categorizzare siti per adulti o porno, e tutto ci\`o spinto da aziende che vendono domini. Questo causa il forzare tutto il contenuto all'interno di un certo TLD (nel caso pensate), o di consigliarlo (nel caso leggero). Anche se i costi tecnologici sono bassi, il \textit{costo sociale} nel caso leggero non presenta alcun vantaggio e nel caso pesante l'interpretazione del WHO diventa pi\`u informativa, eliminando i vari problemi di categorizzazione (ma in realt\`a no) perch\`e usare l'URL per scopi che non sono i suoi, forzandoci informazione che non dovrebbe stare l\`i, \`e pura stupidit\`a tecnica.
+
+
+\subsection{Torre di babele}
+
+Al MIT vengono creati dei sistemi intelligenti come ``Manda una rosa alla mia ragazza'', dove si veniva trovato un sito web di vendita fiori e venivano inviate delle rose all'indirizzo salvato. Questi sistemi non funzionano bene in quanto ci sono problemi con la raccolta di informazioni nel web.
+Un sistema simile viene eseguito con la RIIA (tipo SIAE italiana) per la ricerca di musica piratata. Questi bot per\`o potrebbero ricadere nello stesso caso del MIT.
