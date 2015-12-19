@@ -1,0 +1,55 @@
+\section{Lezione del 18-12-15}
+
+\paragraph*{Servizi utili}
+\begin{itemize}
+\item[D2RQ] d2rq.org permette di passare automaticamente da dati SQL ad RDF. Si collega tramite JDBC e funziona anche da server
+\item[Triplify] Come D2RQ ma senza lato server
+  \item[Virtuoso] Virtuoso \`e un ``server universale'' che implementa molti protocolli. Permette quindi iterazione a vari livelli tra SQL, XML, RDF, web services. Disponibile sia in formato open source che commerciale.
+\end{itemize}
+
+\paragraph*{Lifting dati} Nel tempo ci si \`e chiesto com'era possibile eseguire il lifting dei dati e si \`e giunti a diverse conclusioni:
+\begin{itemize}
+\item[NLP] \`E quello che si fa usano i cosiddetti tool NLP (= Natural Language Processing). Ad esempio Open Calais\footnote{Sviluppato da Thomeson Reuters}, ma anche Spotlight, Alchemy, Extractiv, Ontos, Evri, Saplo, Lupedia, etc...
+\end{itemize}
+
+Ad esempio Google usa una particolare algoritmica per eseguire Lifting per far passare dati da 4 a 5 stelle. Il problema principale \`e che sono presenti dei grafi della conoscenza che devono essere collegati insieme. Per far ci\`o \`e necessario che siano presenti degli oggetti web in comune. Detto simil(x,y) (dove x e y possono essere URI o stringhe etc etc). Ragionando a forza bruta si potrebbe prendere tutte le coppie di oggetti tra G1 e G2, e calcolare la loro somiglianza simil(x,y): questo approccio in stile forza bruta ha complessit\`a $O(|G1|*|G2|)$, e non funziona bene. Il tipo di funzione di somiglianza che viene effettivamente usato si chiama \textit{distanza di Levenshtein}: date due stringhe, si misura quanto sono lontane fra loro usando delle azioni dette ``mosse''. Le ``mosse'' permesse sono:
+\begin{itemize}
+\item Aggiungere caratteri
+\item Rimozione caratteri
+\item Sostituzione caratteri
+\end{itemize}
+I suggerimenti del tipo ``forse cercavi ...'' sono generati grazie a questo algoritmo. Ci\`o aiuta anche a migliorare la qualit\`a della ricerca e permette di lanciare ricerche correlate.
+
+Le distanze di Levenshtein vengono definite come distanze proprio perch\`e definiscono distanze geometriche, che devono soddisfare le seguenti propriet\`a:
+\begin{itemize}
+\item $d(x,y) \ge 0$
+\item $d(x,y)=0 \Leftrightarrow x=y$
+\item $d(x,y) = d(y,x)$
+\item Disuguaglianza triangolare: $d(x,y) \le = d(x,z) + d(z,y)$. Da qui si pu\`o notare che: $d(x,y) \le d(x,y)+d(y,z)$ e da questa \`e possibile dedurre $d(x,y)-d(y,z) \le d(x,y)$, ovvero: $d(x,y)-d(y,z) \le d(x,y) \le d(x,z)+d(z,y)$, implicando che invece di calcolare direttamente una distanza tra due punti $x$ e $y$, $d(x,y)$ si pu\`o avere un range di approssimazione della distanza. Pi\`u punti vengono scelti, migliore sar\`a l'approssimazione, ma pi\`u se ne scelgono e pi\`u distanza \`e necessario calcolare. Inoltre quando scegliamo i punti, intuitivamente, dovrebbero essere ``equamente distribuiti'', in modo da permettere calcoli delle distanze pi\`u precisi.
+\end{itemize}
+
+Google sceglie un punto a caso, e da qui viene calcolata la distanza tra lui e tutti gli altri. Dopodich\`e si prende come punto successivo quello pi\`u lontano. Dopo la scelta dei punti, si ottiene in un certo senso una divisione dello spazio informativo: ad ogni elemento si associa il punto pi\`u vicino, dividendo lo spazio in zone.
+
+Dati G1 e G2 quindi al posto di usare la forza bruta \`e possibile usare la tecnica dei ``punti speciali'': applicando il range di approssimazione piuttosto che calcolare la formula vista prima si ottiene che $d(x,y)-d(y,z) > soglia$ allora anche $d(x,y) > soglia$. Con i punti \`e possibile togliere di mezzo tutte le coppie x e y che hanno $simil(x,y) - simil(y,z)$. Quindi, invece di confrontare con tutti quelli di G1, lo si confronta con le partizioni di G1 create dagli exemplar\footnote{Sono i cosiddetti ``punti''.}, secondo l'ordine dato dalla vicinanza con l'exemplar scelto inizialmente. Se $simil(x,exemplar)-simil(y,exemplar) > soglia$ implica che per ogni altro $x$ della partizione varr\`a sempre la stessa cosa. Dopo aver eliminato tutti i punti uguali i calcoli effettuati sui rimanenti saranno pi\`u rapidi.
+\`E importante scegliere attentamente il numero dei punti sugli exemplar, e un numero buono \`e la radice quadrata di G1, ottenendo infine che la complessit\`a risulta essere: $O(|G1|*(|E|*|G2|))$. Si pu\`o notare come la complessit\`a \`e peggiore dell'applicazione della semplice forza bruta. \`E importante ricordare che \`e la complessit\`a \textit{teorica}, ma nella pratica questa tecnica funziona benissimo.
+
+Quindi questa tecnica, chiamata \textit{LIMES} funziona benissimo: da un risparmio di circa il 95\% (e in molti casi anche di pi\`u) rispetto al normale approccio brute force!
+
+\paragraph*{Esposizione dati}\`E importante definire in che modi \`e possibile esporre i dati nel web. Si pu\`o semplicemente mettere i dati come file in un URI, ad esempio in un \textit{RDF dump} (questo per\`o non \`e pratico e non viene usato). Altri metodi si hanno utilizzando SPARQL: invece di dare solo accesso ai dati, si da modo di fare query tramite SPARQL: in tal modo si offre un servizio (\textit{web service}) molto pi\`u potente e flessibile; in questo caso si parla quindi di SPARQL \textit{endpoint}. L'accesso agli endpoint SPARQL avviene tramite la classica modalit\`a GET HTTP. I parametri sono da passare sono dopo la \textit{query}: si prende la query SPARQL che viene eseguita, modificata facendo il classico \%-encoding per gli URL.
+Ad esempio:
+\begin{verbatim}
+PREFIX dc:<http://purl.org/dc/elements/1.1/>
+SELECT ?book ?who
+WHERE 
+\end{verbatim}
+%mancante
+
+Esempi concreti:
+\begin{itemize}
+\item[DBPedia] \`E la versione \textit{semantica} di wikipedia. DBPedia ha una sua ontologia (ma si appoggia a delle ontologie standard di riferimento, per interoperabilit\`a mondiale), ed ha circa 2 milioni e mezzo di risorse. DBPedia fornisce SPRARQL endpoints per il pubblico uso.
+\end{itemize}
+
+Le ontologie di base pi\`u importanti per il web vengono fornite da \url{schema.org}
+
+RelFinder permette di navigare tramite grafi della conoscenza.
+%da vedere anche RELfinder

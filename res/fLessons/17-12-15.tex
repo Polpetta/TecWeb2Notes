@@ -1,0 +1,141 @@
+\section{Lezione del 17-12-15}
+
+Dopo gli assiomi di tipo 0, esistono gli assiomi di tipo 1:
+\begin{itemize}
+
+\item[Assioma 1]Non importa a chi e dove specifichi quest'URI, dovr\`a avere sempre lo stesso significato
+  
+\end{itemize}
+
+\paragraph*{OWL}Il supporto di base fornito da RDF-Schema \`e stato quindi esteso, con uno strato apposito nella ``torre semantica'' dedicato apposta alle ontologie, ovvero \textit{OWL}\footnote{Acronimo per Web Ontology Language.}.
+In OWL sono presenti le seguenti funzionalit\`a di uguaglianza:
+\begin{itemize}
+  
+\item equivalentClass
+\item equivalentProperty
+\item sameIndividualAs (sameAs)
+\item differentFrom
+\item allDifferent
+  
+\end{itemize}
+
+OWL permette di ridurre la piaga potenziale dell'URI variant law, stabilendo relazioni tra ontologie diverse. \`E possibile anche stabilire delle propriet\`a per le caratteristiche, come:
+\begin{itemize}
+\item inverseOf
+\item TransitiveProperty
+\item SymmetricProperty
+\item FunctionalProperty $\to$ per esempio corrispondenza (1,1) tra madre e figlio
+\item InverseFunctionalProperty
+\end{itemize}
+OWL permette di impostare ulteriori restrizioni sui tipi delle propriet\`a, come:
+\begin{itemize}
+\item allValuesFrom
+\item someValuesFrom
+\item minCardinality $\to$ si pu\`o impostare la cardinalit\`a minima delle classi.
+\item maxCardinality
+\item Cardinality
+\end{itemize}
+
+Dopo la definizione delle relazioni (ovvero attraverso la logica di funzionamento) bisogna occuparsi dell'implementazione. Questo perch\`e gi\`a la logica del primo ordine (per ogni, esiste un) non \`e decidibile. SQL-92 \`e un esempio di primo linguaggio relazionale, ma non Turing-completo. Nel web semantico si \`e tentato SPARQL\footnote{SPARQL Protocol and RDF Query Language}, che segue alcune scelte di design di SQL.
+L'idea di base di SPARQL \`e tramite la conoscenza a triplette (predicato-soggetto-complemento), ricalcando la stessa struttura della query SQL:
+\begin{verbatim}
+PREFIX ...
+SELECT ...
+FROM ...
+WHERE{
+  ...
+}
+ORDER BY ...
+\end{verbatim}
+
+Il PREFIX serve semplicemente a creare prefissi leggibili per i nomispazio, come ad esempio:
+\begin{verbatim}
+PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+\end{verbatim}
+
+\paragraph*{Modellazione con SPARQL}
+
+Esistono due modelli principali, \textit{DC} e \textit{FOAF}.
+
+\begin{itemize}
+\item[Dublin Core] \`E praticamente lo standard per descrivere le propriet\`a di base dei documenti, e presenta 15 elementi informativi:
+  \begin{itemize}
+  \item Creator
+  \item Subject
+  \item Description
+  \item Publisher
+  \item Contributor
+  \item Date
+  \item Type
+  \item Format
+  \item Identifier
+  \item Source
+  \item Language
+  \item Relation
+  \item Coverage
+  \item Rights
+  \end{itemize}
+  Questo insieme compatto permette di definire in modo completo le pagine web. Per esempio in HTML:
+\begin{verbatim}
+  <meta NAME="DC.title" content="A cosa serve OWL" >
+\end{verbatim}
+
+\item[Friend Of A Friend]\`E l'ontologia per il web sociale. Definisce le caratteristiche principali riferendosi a persone con una classe \textit{Person} con diverse propriet\`a. Una delle possibili propriet\`a \`e anche \textit{myersBriggs}, dove sono presenti 16 tipi di personalit\`a distribuite su 4 assi (Estroversione, sensitivit\`a, ragionamento, giudizio). Un esempio:
+\begin{verbatim}
+<foaf:Person>
+  <foaf:name>Massimo Marchiori</foaf:name>
+  <foaf:mbox rdf:resource=mailto:massimo@w3.org />
+</foaf:Person>
+\end{verbatim}
+
+\`E possibile, usando foaf, esprimere anche il concetto di amicizia con \textit{foaf:knows}
+\end{itemize}
+
+%PlanetRDF \`e un sito ``semantico'' costruito con il web semantico che sfrutta SPARQL. <- esempio inutile
+
+SPARQL permette anche la gestione dei dati opzionali, importante in un'ottica di Web Semantico, dove i grafi della conoscenza sono costruiti nel/dal Web, quindi possibilmente \textit{parziali}. I dati parziali vengono gestiti tramite la keyword \textit{OPTIONAL}, che indica l'esistenza o meno di dati. Ad esempio:
+\begin{verbatim}
+ PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+ SELECT ?name ?picture
+ WHERE{
+   ?someone foaf:name ?name .
+   OPTIONAL{
+    ?someone foaf:picture ?picture .
+   }
+ }
+\end{verbatim}
+
+
+\paragraph*{Complessit\`a ed efficenza}L'efficenza di SPARQL \`e legata alla complessit\`a. Nella gerarchia della complessit\`a, SPARQL si trova in PSPACE\footnote{Tra i problemi NP e EXPTIME.} (analogamente a SQL).
+
+Con OWL si \`e deciso di dare creare versioni leggermente diverse in base alla complessit\'a desiderata. In ordine di potenza crescente:
+\begin{itemize}
+
+\item OWL Lite $\to$ il pi\`u leggero e il pi\`u efficente. \`E \textit{decidibile} e corrisponde alla logica detta SHIF.
+\item OWL DL $\to$ \`E \textit{decidibile}, e corrisponde alla logica detta SHOIN (logica descrittiva, DL = Description Logic)
+\item OWL Full $\to$ non ha restrizione, ed \`e \textit{indecidibile}
+  
+\end{itemize}
+
+La versione di OWL Lite appartiene alla complessit\`a logica di EXPTIME, e la SHOIN in NEXPTIME. Queste scelte sono state effettuate in base alle classe di complessit\`a, rimandendo comunque misure statistiche\footnote{``Le statistiche sono come i bikini. Ci\`o che rivelano \`e suggestivo, ma ci\`o che nascondono \`e pi\`u importante'' [cit. Aaron Levenstein]}. In realt\`a la classe di complessit\`a di un problema \`e la punta dell'iceberg e indica la complessit\`a media.
+
+%query exptime - da cercare e provare su google
+
+SPARQL \`e in PSPACE, ma gi\`a solo togliendo la keyword OPTIONAL, scendiamo al 100\% dentro co-NP. Statisticamente, molta della conoscenza che si trova nel web sta in sotto-logiche di OWL, ad esempio AL e ALC, che hanno rispettivamente complessit\`a PSPACE e P.
+
+\paragraph*{Linked Data}Linked Data \`e il nuovo nome per il Semantic Web e dato il suo successo viene usato anche come generalizzazione per indicare dati generalmente utilizzabili per il grafo della conoscenza.
+
+\paragraph*{LOD}I LOD sono un tipo particolare di Linked Data: i Linked Open Data, dove la loro caratteristica principale \`e di essere gratis. Segue una classificazione LOD [il numero indica la stellina]:
+\begin{enumerate}
+
+\item Dati disponibili sul web ma con una licenza open (open data)
+\item Dati disponibili sul web in un formato strutturato machine-readable
+\item Come prima, usando un formato dati non proprietario
+\item Come prima, ma in formato Semantic Web (RDF*, OWL)
+\item Come prima, con dati linkati ai dati di altri per dare il contesto
+\end{enumerate}
+
+%star badges -> da guardare
+
+La fascia con tre stelle (dati in formati non proprietari) non sono necessariamente in RDF/OWL, ma \`e possibile trasformarli tramite l'uso di macchine. Quando si passa da un mondo non Semantic Web (da tre stelle in gi\`u) al mondo RDF si parla di \textit{lifting}, mentre il passaggio inverso si dice \textit{lowering}.
+Lifting e lowering sono estremamente importanti per fare il cosiddetto \textit{mashup}, cio\`e unire il mondo XML/HTML/XHTML con RDF/OWL.

@@ -1,0 +1,82 @@
+\section{Lezione del 11-12-15}
+
+Le informazioni vengono scritte tramite HTML, che \`e semplice ma molto limitato. Si \`e quindi passati a un nuovo metodo, tramite XML, che rende l'strazione dei dati dal web pi\`u semplice. XML \`e semplice e flessibile\footnote{Esistono molti dialetti.} ed \`e stato creato proprio per rispondere a questa esigenza. Purtroppo la stessa flessibilit\`a di XML \`e anche allo stesso tempo la sua pecca, in quanto manca una funzionalit\`a fondamentale dell'aggregazione dell'informazione: infatti il potere del web sta nel suo carattere distribuito e l'enorme potenziale sta quindi \textit{nell'aggregazione} di tutte queste risorse. L'aggregazione XML funziona bene quando si usa \textit{lo stesso} dialetto XML, ma quando cominciano a esistere diversi dialetti multipli non si hanno pi\`u gli strumenti tecnici per l'aggregazione: XML fallisce nel modello \textit{open-world}.
+
+La struttura dati di base di XML non \`e una struttura dati fatta per l'aggregazione\footnote{La struttutra dati XML \`e fatta ad albero.}, e l'unione di due alberi porta alla creazione di una foresta, detta anche collezione di documenti XML. Per superare questo problema si \`e cercato di rendere possibile l'aggregazione automatica dell'informazione e di rendere possibile il \textit{ragionamento automatico} su tale informazione, creando il web semantico. Il significato di web semantico significa aggiungere del significato al web. \`E necessario quindi avere una sorta di \textit{pesce di Babele} per il Web. Da qui la nascita di \textbf{RDF}\footnote{Significa Resource Description Framework}, che si occupa di descrivere relazioni e concetti, ovvero dei ``metadata''\footnote{Ðefinizione: metadata is the data that I forgot to put in the first place.} (dati sui dati, dati di livello superiore).
+
+\paragraph*{RDF}Tecnicamente \`e un ``enriched entity-relationship'' knowledge model. \`E presente una grammatica di base, dove una ``frase'' \`e composta da:
+\begin{itemize}
+
+\item soggetto
+\item predicato
+\item complemento oggetto
+  
+\end{itemize}
+La ``frase'' \`e il mattone principale di RDF, e in un certo senso, stiamo insegnando al web l'inglese. L'RDF pu\`o essere rappresentato come grafo.
+
+Il tipo di dato che possono essere inseriti nei campi possono essere:
+\begin{itemize}
+
+\item URI
+\item Literal (stringhe)
+
+\end{itemize}
+
+\paragraph*{Come si scrive RDF}RDF pu\`o essere scritto come:
+\begin{itemize}
+
+\item[Dialetto XML] La struttura XML funziona bene perch\`e \`e possibile alzare la complessit\`a creando frasi pi\`u complicate e pi\`u ricche di significato. Il punto principale dell'aggregazione \`e che permette l'interoperabilit\`a delle parti informative.
+\item[N-triple] \`E una sintassi semplici, che si basano su delle triplette che si basano sulle triplette soggetto-predicato-oggetto.
+
+\end{itemize}
+
+
+RDF rimane comunque un linguaggio ``separato'' dal web, ma non \`e possibile integrarlo nel web non pu\`o essere utile. RDFa (ma \`e uno dei tanti altri modi) creato ai tempi di XHTML2 ha due nuovi attributi: ``about'' e ``property''.
+
+\paragraph*{Propriet\`a di RDF}RDF rende possibile l'integrazione tra dati, e avendo una struttura a grafi l'unione di due grafi (unioni di pi\`u fonti) genera sempre un grafo. Questo permettono di creare dei collegamenti ``in automatico'' tra i nodi in base alla presenza di stessi nomi web, tramite URI.
+RDF ha anche:
+\begin{itemize}
+
+\item[Contenitori] Essenzialmente la ``e'' e la ``o'' per gli oggetti.
+\item[Variabili] Ovvero un oggetto non specificato (anonimo). Si occupa di recuperare dati dall'informazione parziale incompleta.
+\item[Monoticit\`a] RDF \`e \textit{monotono}: il che significa che viene presa l'informazioni espressa in RDF e supponiamo sia vera (ovvero l'informazione \`e affidabile), allora ogni pezzo di questa informazione \`e vero.
+\item[Reificazione] (Reification) La ``Reificazione'' permette di rispettare la monotonicit\`a, nel caso di \textit{citazioni}. Essenzialmente, permette di ragionare per livelli. Esempio:
+\begin{verbatim}
+  Grmoit dice che "la luna e' di formaggio"
+\end{verbatim}
+In questo caso le virgolette permettono un ``passaggio di livello'', ovvero un blocco separato, ed \`e molto utile, per esempio, per l'uso di firme digitali.
+
+\item E altro %mancanti
+
+\end{itemize}
+
+Con RDF \`e possibile \textit{classificare} gli oggetti. Per fare ci\`o vengono usate le \textit{ontologie}, ovvero sistemi di classificazione dell'informazione. L'informazione di ``tipo X'', dove qui il ``tipo'' \`e un \textit{tipo semantico}. I tipi semantici permettono di dare il significato dell'oggetto, ma pi\`u in generale, perch\`e astraggono dalla rappresentazione sintattica.
+
+I bot nel web non riescono a capire veramente il testo, ma capiscono il senso delle pagine web. Questo perch\`e mancano i tipi semantici. Ad esempio il P2P (Peer to Peer, tipo Kazaa, Bearshre, Gnutella) si usa per lo scambio di file mp3. La RIIA usa i bot che si basano sul ``nuovo'' livello, usando i tipi semantici.
+
+Le ontologie definiscono delle \textit{classi}. Ogni classe pu\`o contentere degli oggetti. Trami ontologie, possiamo attaccare ``etichette'' (classi) agli oggetti. Le etichette sono pi\`u di una in quanto nulla vieta di aver epi\`u caratteristiche per lo stesso oggetto, a seconda dell'informazione che ci interessa. La cosa interessante \`e che una ontologie pu\`o avere una struttura interna, cio\`e non essere solo una collezione ``piatta'' di classi, ma possono esserci presenti delle gerarchie. In generale, la struttura gerarchica di una classe definisce una relazione di \textit{contenumento}, che pu\`o valere o meno tra le classi. Pi\`u struttura in una ontologiea permette di fare pi\`u cose: ad esempio, permette di fare \textit{controlli d'integrit\`a}, e anche \textit{deduzioni} (ragionamenti).
+
+\textit{RDF-Schema}\`E lo standard di base che da supporto di base ontologico.
+
+\paragraph*{Caratteristiche di RDF schema}Con RDF schema vengono introdotti i concetti di classi e di subClassOf. Queste mi permettono di definire un'ontologie basandomi sulle informazioni. RDF schema permette anche di definire la ``struttura informativa'' di RDF, in modo analogo a quanto i DTD fanno per XML. In RDF schema vegnono introdotti anche i concetti di ``verbo'', dove \`e possibile avere classi e anche:
+\begin{itemize}
+
+\item Property %va maiuscolo
+\item subPropertyOf
+\item domain
+\item range
+
+\end{itemize}
+
+Quindi con RDF schema possiamo \textit{categorizzare} l'informazione. \`E possibile andare oltre RDF-schema, ed \`e quello che viene chiamato anche com strato tassonomico. Le tassonomie sono il primo passo, ma si pu\`o dire molto di pi\`u.
+
+\paragraph*{Architettura web}Quando il web fu creato furono stabiliti anche degli assiomi:
+\begin{itemize}
+
+\item[Assioma 0] Universalit\`a 1: ogni risorsa ovunque sia pu\`o essergli dato un URI.
+\item[Assioma 0a] Universalit\`a 2: ogni risorsa che mi interessa dovrebbe essere assegnata un URI.
+  
+
+\end{itemize}
+
+Trovare un nome web quindi non \`e cos\`i banale. \`E presente il problema degli \textit{URI Variant problem}, dove, in generale, ci possono essere molte varianti (URIs) per lo stesso concetto. Questo porta alla \textit{URI Variant Law} (legge della varianza degli URI): l'utilit\`a degli URI descresce esponenzialmente con il numero di \textit{varianti}.
