@@ -2,4 +2,56 @@
 
 \subsection{Ambito Mobile}
 
+Dal punto di vista mobile, \`e stato recende l'adattamento causa l'impreparazione generale: dei top 1000 siti al mondo, 530 siti non hanno un sito web mobile e di questi, il 25\% sfora alla grande dallo scermo.
 
+Nel marzo 2013 il team di Chrome di ``mangia'' il team di sviluppo di Android. La visione \`e sempre stata quella: andare verso la convergenza tra mondo mobile e mondo web. Lo stesso Steve Jobs ha commesso degli errori, in quanto era assolutamente contrario alle app, e voleva web applications. Il problema di Google \`e stato che Apple non ha voluto assolutamente collaborare, avendo poi capito di poter diventare come Microsoft. Per questo moditov Google ha comprato android, per cercare di creare un'alternativa mobile dove poter entrare con la sua galassia web.
+
+Gi\`a ora si sta andando verso la convergenza con il web, tramite le applicazioni ibride (che creano il sito web e corrono sul mobile) fatte in HTML5 e multi-piattaforma. Questa nuova tecnologia \`e stata fortemente voluta da Google.
+
+\paragraph*{App}Le app nascono a causa della logica conseguenza della minimizzazione dello sforzo computazioniale. L'app \textbf{minimizza il tempo di accesso} al servizio che interessa agli utenti. Ad esempio, moltissimi utenti, quasi un quarto, usano le app pi\`u di 60 volte al giorno, e questa percentuale creasce sempre di pi\`u (trend +123\% nell'ultimo anno)\footnote{La facia meno ``drogata di apps'' \`e quella 25-35 anni (il motivo sembra sia la mancanza di tempo per via del lavoro)}. Proprio grazie a questo trend le app mobile vincono rispetto alle applicazioni web: gli utenti smarphone passano in media l'86\% sulle app ed il 14\% sul web, ma nella pratica basta capire cosa fanno gli utenti in questo tempo con le app:
+\begin{itemize}
+
+\item Giochi (32 \%)
+\item Siti sociali (28 \%, il solo 17\% dato da Facebook)
+  
+\end{itemize}
+A parte i giochi quindi, molto del resto \`e solo uso del web tramite apps. \`E quindi importante prestare attenzione: le app vanno di moda, ed \`e lecito sperare che siano una fonte di successo, ma portano anche a una fortissima competizioni: la \textbf{sequenza della morte} segue i numeri 26. 13. 9. Il 25\% delle app sono aperte una volta sola, il 13\% solo due volte, il 9\% solo tre volte, ect..
+Le app quindi sono come le farfalle, e presentano una vita media bassissima: va infatti da 4 mesi ad 1 anno. Attualmente i giochi hanno paradossalmente vita media 4 mesi. Indicazione della durata: se la crescita dura pi\`u del periodo critico di tre mesi, allora molto probabilmente vivr\`a molto pi\`u a lungo, altrimenti morir\`a a breve.
+
+Proprio per questo \`e ancora pi\`u importante per i siti web di essere trovati in questo vastissimo mercato. Si viene trovati tramite lo store (ovvero con uno strumento simile a un motore di ricerca), ed \`e quindi necessario capirne le dinamiche per poterne salire o scendere.
+
+\paragraph*{ASO}ASO \`e il corrispondente CEO per le app\footnote{App Search Optimization}. Presenta delle somiglianze: essendo un mototre funziona per parole chiave, che quindi si dovranno inserire opportunamente. \`E quindi opportuno eseguire un'ottimizazzione testuale, e i posti sono pochi: la descrizione dell'app, le eventuali keywords (Apple app store), e nel posto pi\`u rilevante di tutti: il nome dell'app stessa, dove quindi conviene inserire una o due keywords cruciali. Per il resto, i motori Google e Apple usano tutta l'informazione data dal SIS, il sistema sociale complessivo:
+\begin{itemize}
+
+\item Downloads
+\item Tempo d'utilizzo
+\item Ratings e reviews
+\item Uninstalls
+\item Brand
+\item Parti positive e negative che vengono dagli altri SIS (web ed email) $\to$ l'app store non \`e staccato dal web, ma le informazioni vengono ``passate'' allo store.
+  
+\end{itemize}
+
+\subsection{Usabilit\`a Mobile}
+
+Il Google Compatibility Test \`e un test di compatibilit\`a che controlla se il sito \`e pronto per essere mobile o meno.
+
+\paragraph*{Modellazione}Vedendo le \textbf{cause} delle differenze tra mondo classico e mondo mobile, ovvero un diverso modello di esecuzione.
+\begin{enumerate}
+  
+\item Mobile
+\item Schemo
+\item Iterazione: si usano le dita e non il mouse
+  
+\end{enumaerate}
+\`E necessario prestare attenzione in generale perche\`e a livello mondiale ci sono ancora tantissimi cellulari non touch, quindi in ogni caso dipende sempre dal \textbf{target} che vogliamo raggiungere.
+
+
+\paragraph*{Mobile}Cambia la rete di connessione, che \`e appunto la rete mobile. Fatto: le reti 3G sono in media il 40\% pi\`u lente delle normali connessioni desktop, mentre le reti 4G/LTE sono in media il 12\% pi\`u lento di quelle desktop. Quindi tutti i timer sono impattati, allungango i timer corrispondentemente, e questo \`e un ritardo locale per ogni pagina portando l'utente ad ottenere un effetto negativo. Nel caso desktop, l'utente si aspetta un tempo massimo di 2 secondi per pagina e oltre questo tempo, percepisce una sesazione negativa di ritardo. Nel caso mobile le aspettative non cambiano: il limite resta sempre di 2 secondi e quindi bisogna prestare attenzione: non basta solamente cambiare il layout, bisogna togliere pesantezza al sito. Gli stessi limiti temporali si applicano alle app. \`E essenziale la ``responsiveness'', non si deve percepire alun ritardo di azione se non in rari casi giustificabili agli occhi dell'utente (ad esempio upload di foto). Da notare chee questo vale anche per ogni azione che implica un collegamento di rete! Sono state ideate diverse soluzioni:
+\begin{enumerate}
+
+\item[Mobile] Nel caso desktop, si mette una progress bar o un cosiddetto spinner per allietare l'attesa dell'utente. Questa per\`o non \`e una buona soluzione in quanto non \`e gradito dall'utente: le progress bars e spinners stanno segnalando esplicitamente che c'\`e un problema e che l'utente deve aspettare. \`E come se quando siamo in coda qualcuno ci continuasse a dire ad ogni secondo ``lei \`e in coda, ma manca poco!''. Nel caso mobile, quindi non si usa niente di tutto questo che causa danno, ma si usa il cosiddetto \textbf{transitioning}, che permette di tenere l'utente impegnato, con animazioni o altro (ad es. Google Search). Gli \textbf{skeleton screen} se conosco il layout finale dell'azione, posso cominciare a disegnarlo anche se non ho ancora avuto i dati corrispondenti: queste azioni vengono viste in modo molto positivo dagli utenti.  Preemptiveness: ad esempio, app che carica foto. Invece di far scegliere la foto, chiedere una descrizione e poi fare l'upload \`e meglio caricare la foto appena \`e stata scelta. In tal modo l'upload spesso sembreer\`a istantaneo, provocando un enorme gradimento degli utenti (ad esempio WhatsApp o Telegram). \url{0.facebook.com} \`e la versione ultra ridotta di facebook, con funzionalit\`a tirate all\`osso. Ad esempio, le immagini non sono inline, ma vanno visualizzate manualmente. La versione 0 viene offerta gratis in tutti quei posti del mondo dove le connessioni sono lente  e relativamente costose. In tal modo Facebook ha ampliato la sua base di utenti a livello mondiale, senza essere limitato dal problema della rete mobile.
+
+\item[Schermo] La taglia dell schermo \`e importante: differenziando tra scroll orizzontale e verticale anche qui lo scroll orizzontale \`e sempre molto peggiore di quello verticale, mentre lo scroll verticale spesso non \`e cos\`i grave come lato Desktop, e questo perche\`e lo sforzo fisico e mentale \`e molto minore (viene fatto tramite gesture, senza bisogno come col mouse di andare in (piccole) posizioni specifiche e poi cliccare o usare il drag). \`E importante tenere conto che lo scroll verticale \`e deleterio per gli utenti quando viene usato per offrire scelte (ad esempio menu o liste prodotti): l'utente per ogni scroll che fa deve tenere a mente il contenuto delle schermate precedente. Quindi in caso di scelta \`e opportuno ad esempio evitare l'utilizzo di immagini. Un esempio di un'icona molto discussa \`e l'icona \textbf{hamburger}, ovvero l'icona del men\`u, che da molti utenti non viene capita: la funzionalit\`a minima in una pagina mobile \`e` quella del menu, ma se dobbiamo usare testo sprechiamo spazion, ed abbiamo anche problemi di internazionalizzazione. Per migliorare la comprensione da parte degli utenti Firefox ha recentemente cambiato l'interfaccia desktop, introducendo l'hamburger, e sul lato destro. Questo perch\`e Firefox \`e una ditta, e viene finanziata principalmente da Google (centinaia di milioni di dollari), ed \`e il motivo per cui ad esempio Firefox ha Google come motore di ricerca. Siccome \`e un problema di abitudine utente, e visti i benefici dell'hamburger per il mondo Android, Google ha ``accelerato'', cambiando ad esempio le sue interfacce desktop (menu sul lato destro), e facendo cambiare anche quella di Firefox.
+  
+\end{enumerate}
