@@ -33,13 +33,13 @@ Il tipo di dato che possono essere inseriti nei campi possono essere:
 
 RDF rimane comunque un linguaggio ``separato'' dal web: non essendo possibile integrarlo non pu\`o essere utile. RDFa (ma \`e uno dei tanti altri modi) creato ai tempi di XHTML2 ha due nuovi attributi: ``about'' e ``property''. RDFa si integra con il Web.
 
-\paragraph*{Propriet\`a di RDF}RDF rende possibile l'integrazione tra dati, e avendo una struttura a grafi l'unione di due grafi (unioni di pi\`u fonti) genera sempre un grafo. Questo permettono di creare dei collegamenti ``in automatico'' tra i nodi in base alla presenza di stessi nomi web, tramite URI.
+\paragraph*{Propriet\`a di RDF}RDF rende possibile l'integrazione tra dati, e avendo una struttura a grafi l'unione di due grafi (unioni di pi\`u fonti) genera sempre un grafo. Questo permette di creare dei collegamenti ``in automatico'' tra i nodi in base alla presenza di stessi nomi web, tramite URI.
 RDF ha anche:
 \begin{itemize}
 
 \item[Contenitori] Essenzialmente la ``e'' e la ``o'' per gli oggetti.
 \item[Variabili] Ovvero un oggetto non specificato (anonimo). Si occupa di recuperare dati dall'informazione parziale incompleta.
-\item[Monoticit\`a] RDF \`e \textit{monotono}: il che significa che viene presa l'informazioni espressa in RDF e supponiamo sia vera (ovvero l'informazione \`e affidabile), allora ogni pezzo di questa informazione \`e vero.
+\item[Monoticit\`a] RDF \`e \textit{monotono}: il che significa che viene presa l'informazione espressa in RDF e si suppone sia vera (ovvero l'informazione \`e affidabile): allora ogni pezzo di questa informazione \`e vera.
 \item[Reificazione] (Reification) La ``Reificazione'' permette di rispettare la monotonicit\`a, nel caso di \textit{citazioni}. Essenzialmente, permette di ragionare per livelli. Esempio:
 \begin{verbatim}
   Grmoit dice che "la luna e' di formaggio"
@@ -54,9 +54,9 @@ Con RDF \`e possibile \textit{classificare} gli oggetti. Per fare ci\`o vengono 
 
 I bot nel web non riescono a capire veramente il testo, ma capiscono il senso delle pagine web. Questo perch\`e mancano i tipi semantici. Ad esempio il P2P (Peer to Peer, tipo Kazaa, Bearshre, Gnutella) si usa per lo scambio di file mp3. La RIIA usa i bot che si basano sul ``nuovo'' livello, usando i tipi semantici.
 
-Le ontologie definiscono delle \textit{classi}. Ogni classe pu\`o contentere degli oggetti. Trami ontologie, possiamo attaccare ``etichette'' (classi) agli oggetti. Le etichette sono pi\`u di una in quanto nulla vieta di aver epi\`u caratteristiche per lo stesso oggetto, a seconda dell'informazione che ci interessa. La cosa interessante \`e che una ontologie pu\`o avere una struttura interna, cio\`e non essere solo una collezione ``piatta'' di classi, ma possono esserci presenti delle gerarchie. In generale, la struttura gerarchica di una classe definisce una relazione di \textit{contenumento}, che pu\`o valere o meno tra le classi. Pi\`u struttura in una ontologiea permette di fare pi\`u cose: ad esempio, permette di fare \textit{controlli d'integrit\`a}, e anche \textit{deduzioni} (ragionamenti).
+Le ontologie definiscono delle \textit{classi}. Ogni classe pu\`o contentere degli oggetti. Tramite ontologie, possiamo attaccare ``etichette'' (classi) agli oggetti. Le etichette sono pi\`u di una in quanto nulla vieta di avere pi\`u caratteristiche per lo stesso oggetto, a seconda dell'informazione che ci interessa. La cosa interessante \`e che una ontologia pu\`o avere una struttura interna, cio\`e non essere solo una collezione ``piatta'' di classi, ma possono esserci presenti delle gerarchie. In generale, la struttura gerarchica di una classe definisce una relazione di \textit{contenimento}, che pu\`o valere o meno tra le classi. Pi\`u struttura in una ontologiea permette di fare pi\`u cose: ad esempio, permette di fare \textit{controlli d'integrit\`a}, e anche \textit{deduzioni} (ragionamenti).
 
-\textit{RDF-Schema}\`E lo standard di base che da supporto di base ontologico.
+\textit{RDF-Schema} \`e lo standard di base che da supporto ontologico.
 
 \paragraph*{Caratteristiche di RDF schema}Con RDF schema vengono introdotti i concetti di classi e di subClassOf. Queste mi permettono di definire un'ontologie basandomi sulle informazioni. RDF schema permette anche di definire la ``struttura informativa'' di RDF, in modo analogo a quanto i DTD fanno per XML. In RDF schema vegnono introdotti anche i concetti di ``verbo'', dove \`e possibile avere classi e anche:
 \begin{itemize}
@@ -68,7 +68,7 @@ Le ontologie definiscono delle \textit{classi}. Ogni classe pu\`o contentere deg
 
 \end{itemize}
 
-Quindi con RDF schema possiamo \textit{categorizzare} l'informazione. \`E possibile andare oltre RDF-schema, ed \`e quello che viene chiamato anche com strato tassonomico. Le tassonomie sono il primo passo, ma si pu\`o dire molto di pi\`u.
+Quindi con RDF schema possiamo \textit{categorizzare} l'informazione. \`E possibile andare oltre RDF-schema, ed \`e quello che viene chiamato anche con strato tassonomico. Le tassonomie sono il primo passo, ma si pu\`o dire molto di pi\`u.
 
 \paragraph*{Architettura web}Quando il web fu creato furono stabiliti anche degli assiomi:
 \begin{itemize}
