@@ -32,3 +32,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: Polpetta/TecWeb2Notes
+    tags: true
