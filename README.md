@@ -1,3 +1,7 @@
+# TecWeb2Notes
+
+Build status: [![Build Status](https://travis-ci.org/Polpetta/TecWeb2Notes.svg?branch=master)](https://travis-ci.org/Polpetta/TecWeb2Notes)
+
 License
 =======
 
