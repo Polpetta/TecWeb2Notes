@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Polpetta/TecWeb2Notes.svg?branch=master)](https://travis-ci.org/Polpetta/TecWeb2Notes)
 
-Appunti sul corso di ![Tecnologie Web 2](http://corsi.math.unipd.it/tecweb2/) tenuto dal Prof. ![ Massimo Marchiori](http://www.math.unipd.it/~massimo/index-it.html) all'![Università di Padova](http://www.unipd.it/).
+Appunti sul corso di [Tecnologie Web 2](http://corsi.math.unipd.it/tecweb2/) tenuto dal Prof. [Massimo Marchiori](http://www.math.unipd.it/~massimo/index-it.html) all'[Università di Padova](http://www.unipd.it/).
 
 Come ottenere i pdf
 ===================
