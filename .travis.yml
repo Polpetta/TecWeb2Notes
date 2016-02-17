@@ -1,6 +1,8 @@
 language:
 - ruby
+
 sudo: required
+
 branches:
   only:
   - master
@@ -22,3 +24,11 @@ install:
 
 script:
 - latexmk -pdflatex='pdflatex -interaction=nonstopmode' -pdf
+
+deploy:
+  provider: releases
+  api_key:
+    secure: JjYSfjoquVfMYmW3ZaxRwt/WAyBhlSa800uDGqdOATp4XNThWihRnau3vbrmGpv/Hs5THLp7Oj54fZFTmvvZdimjN+TySY9durwpdXaL2kUfZWrpWm6hSI0YZIvSUFL6R6ceoXAdcWuO7rTMwjjRsmRSyYDc4SW5UIYE85vk+CTauH7VHJbRR4JW9fKWKXBcv6/l2fYCeztDQVIznv7xBA+B7aIsTuISLLOvevlUd3sDbG/uKKEsxraGKLSNB5livY4VE/mq8EY/97cTLKSkC0PP8n+d78h+NJz44ln4hxZvM+UWWATFnlnKqS0TxneTl88IxL50cnwt7tkcs3ilQqh4+5+N3ghC6sUhjE9JoF8pSrwoNZi1zwtuwY3BZHykn2JVBI+aPYFqbLA/RkseKnRfiLdSruvWLYvW7V8qqtqriMeAs0ZSCiv0gPEFRMArppJLE1boeTdXHD9/b9djnbMlKyx4WS2vbSwVU7GX7rnhmMCXAtkfxNOeS41sLMlFaI7dK/GLOtutw8OZ6eVk+UlaiSRh/P/tYBcBbVuT/8b1W8lCKCIKXbzx7OkvIK682uswe9GnkPWiNxGNsiLpcnfmXiN28ZxlTnzReQ6w1kHt+vZrTILztff7isHkHLhn31s+ePJZRHAoAGVTKA3fa7vhIQa1pehX5OgiOuC7xCk=
+  file: main.pdf
+  on:
+    repo: Polpetta/TecWeb2Notes
