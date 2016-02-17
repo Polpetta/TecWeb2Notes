@@ -2,10 +2,6 @@ language:
 - ruby
 
 sudo: required
-
-branches:
-  only:
-  - master
   
 install:
 - sudo add-apt-repository ppa:texlive-backports/ppa -y
