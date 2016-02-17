@@ -9,18 +9,14 @@ branches:
   
 install:
 - sudo add-apt-repository ppa:texlive-backports/ppa -y
-- sudo apt-get update -y -q
-- sudo apt-get install texlive-latex-extra -y -q
-- sudo apt-get install texlive-luatex -y -q
-- sudo apt-get install texlive-fonts-extra -y -q
-- sudo apt-get install cm-super -y -q
-- sudo apt-get install texlive-bibtex-extra -y -q
-- sudo apt-get install latexmk -y -q
-- sudo apt-get install tex4ht -y -q
-- sudo apt-get install texlive-fonts-recommended  -y -q
-- wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-- sudo texlua install-getnonfreefonts
-- sudo getnonfreefonts-sys garamond
+- sudo apt-get update -y 
+- sudo apt-get install texlive-latex-extra -y 
+- sudo apt-get install texlive-luatex -y 
+- sudo apt-get install cm-super -y 
+- sudo apt-get install texlive-bibtex-extra -y 
+- sudo apt-get install latexmk -y 
+- sudo apt-get install tex4ht -y 
+- sudo apt-get install texlive-fonts-recommended  -y 
 
 script:
 - latexmk -pdflatex='pdflatex -interaction=nonstopmode' -pdf
